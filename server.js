@@ -3,6 +3,7 @@ require('dotenv').config();
 const PORT = process.env.PORT;
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
+const Products = require('./models/products')
 const colors = require('colors');
 const morgan = require('morgan');
 //Initializing...
