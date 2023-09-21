@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details Page</title>
+</head>
+
+<body>
+    <h1>Show time</h1>
+    <div>
+        <h2>
+            <%= product.name %>
+        </h2>
+        <div>
+            <img src="<%= product.img %>" alt="">
+            <p>
+                <%= product.description %>
+            </p>
+        </div>
+        <div>
+            qty: <%= product.qty %> <br>
+                Price:$ <%= product.price %> <br>
+        </div>
+
+    </div>
+    <div>
+        <a href="/products">Home</a>
+    </div>
+</body>
+
+</html>

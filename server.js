@@ -24,6 +24,43 @@ app.use(methodOverride('_method'));
 app.use(morgan('dev'));
 
 //Routes..
+//Index Route
+app.get('/products', (req, res) => {
+    Products.find({})
+    .then((allProducts) => {
+        res.render('index.ejs', {
+            products : allProducts
+        })
+    })
+    .catch((error) => {
+        console.log("Error in getting the data".red);
+    })
+})
+
+// //Seed Route
+// app.get('/products/seed', (req, res) => {
+//     Products.create(Items)
+//     .then((createdItems) => {
+//         res.redirect('/')
+//     }).catch((error) => {
+//         console.log(`Error in seeding the database ${error}`.red);
+//     })
+// })
+
+
+//Show Route
+app.get('/products/:id', (req, res) => {
+    Products.findById(req.params.id)
+    .then((foundItem) => {
+        res.render('show.ejs',{
+            product : foundItem
+        })
+    })
+    .catch((error) => {
+        console.log(`${error} error while finding a particular item`.red);
+    })
+})
+
 
 //Database SUCCESS/ERROR messages..
 db.on('connected', () => console.log('Database connected..'))
